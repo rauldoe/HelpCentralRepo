@@ -1,0 +1,99 @@
+﻿@model HCApp.order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.servicetypeid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.servicetypeid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderstatusid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderstatusid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customerid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estimatedhours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estimatedhours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actualhours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actualhours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.perferredgenieid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.perferredgenieid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.specialrequest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specialrequest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateplaced)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateplaced)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datecompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datecompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

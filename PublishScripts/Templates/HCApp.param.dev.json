@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "HCApp1"
+  },
+  "hostingPlanName": {
+    "value": "HCApp1ServicePlan"
+  },
+  "siteLocation": {
+    "value": "South Central US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "38a286d6-7a54-4e57-8b3f-3db8ef08f62d"
+  },
+  "resourceGroup": {
+    "value": "HelpCentralResourceGroup"
+  }
+}

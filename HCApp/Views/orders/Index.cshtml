@@ -1,0 +1,88 @@
+﻿@model IEnumerable<HCApp.order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.servicetypeid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderstatusid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estimatedhours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actualhours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perferredgenieid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specialrequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateplaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datecompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.servicetypeid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderstatusid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estimatedhours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actualhours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perferredgenieid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialrequest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateplaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datecompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.orderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.orderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.orderid })
+        </td>
+    </tr>
+}
+
+</table>

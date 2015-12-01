@@ -1,0 +1,28 @@
+﻿@Model HCApp.CustomerViewModel
+
+@{
+    ViewBag.Title = "LoginGood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login Successful</h2>
+
+<table border="1">
+    <tr>
+        <td>Order Id</td>
+        <td>Action</td>
+    </tr>
+    @foreach (var item in Model.OrderList)
+    {
+        <tr>
+            <td>
+                @item.orderid
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.orderid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.orderid })  |
+                @Html.ActionLink("Delete", "Delete", new { id = item.orderid })
+            </td>
+        </tr>
+    }
+</table>
