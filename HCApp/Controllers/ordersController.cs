@@ -35,6 +35,7 @@ namespace HCApp.Controllers
             return View(order);
         }
 
+    
         // GET: orders/Create
         public ActionResult Create()
         {
