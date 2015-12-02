@@ -3,7 +3,7 @@ using System.Web.Optimization;
 
 namespace HCApp
 {
-    //test
+    //test from laptop
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
