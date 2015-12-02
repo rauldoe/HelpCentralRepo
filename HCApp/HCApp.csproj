@@ -344,7 +344,8 @@
     <Content Include="Views\customers\Index.cshtml" />
     <Content Include="Views\customers\LoginGood.cshtml" />
     <Content Include="Views\customers\LoginBad.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\LoginCustomer.cshtml" />
+    <Content Include="Views\Home\LoginScheduler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,6 +13,16 @@ namespace HCApp.Controllers
             return View();
         }
 
+        public ActionResult LoginCustomer()
+        {
+            return View();
+        }
+
+        public ActionResult LoginScheduler()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();

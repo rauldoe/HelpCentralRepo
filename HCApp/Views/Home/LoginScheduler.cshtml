@@ -1,0 +1,28 @@
+﻿@model HCApp.customer
+
+@{
+    ViewBag.Title = "Login Scheuler";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "schedulers", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>email:</td>
+            <td>@Html.TextBoxFor(i => i.email)</td>
+        </tr>
+        <tr>
+            <td>password:</td>
+            <td>@Html.TextBoxFor(i => i.password)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Login" />
+            </td>
+        </tr>
+    </table>
+
+
+}
