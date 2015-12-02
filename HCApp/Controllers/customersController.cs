@@ -18,7 +18,7 @@ namespace HCApp.Controllers
         [HttpPost]
         public ActionResult Login(customer c)
         {
-            string actionAfterLogin = "LoginBad";
+            string actionAfterLogin = "LoginBad"; //this logs in
             ViewResult vr = View(actionAfterLogin);
 
             if (ModelState.IsValid)
