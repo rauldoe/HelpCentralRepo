@@ -205,6 +205,9 @@
     <Compile Include="genie.cs">
       <DependentUpon>HelpCentralModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="geniestatus.cs">
+      <DependentUpon>HelpCentralModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -368,6 +371,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HbSoft.HCApp.Business\HbSoft.HCApp.Business.csproj">
+      <Project>{7ad2149f-b8c6-4660-ba3a-205c7c0ae7cd}</Project>
+      <Name>HbSoft.HCApp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HbSoft.HCApp.Data\HbSoft.HCApp.Data.csproj">
+      <Project>{e0390e09-ebe1-4b1f-b7ee-a50b270a76e3}</Project>
+      <Name>HbSoft.HCApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HbSoft\HbSoft.csproj">
+      <Project>{e00f900d-3c8f-4093-a2cc-fa10d99d961b}</Project>
+      <Name>HbSoft</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

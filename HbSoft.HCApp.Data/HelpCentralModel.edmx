@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="helpcentraldbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="helpcentraldbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="customers">
           <Key>
             <PropertyRef Name="customerid" />
@@ -165,50 +165,11 @@
           <EntitySet Name="servicetypes" EntityType="Self.servicetypes" Schema="helpcentraldb" store:Type="Tables" />
           <EntitySet Name="workrequests" EntityType="Self.workrequests" Schema="helpcentraldb" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="helpcentraldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="orderhistory">
-          <Key>
-            <PropertyRef Name="orderhistoryid" />
-          </Key>
-          <Property Name="orderhistoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="orderid" Type="Int32" />
-          <Property Name="genieid" Type="Int32" />
-          <Property Name="assigneddate" Type="DateTime" />
-          <Property Name="genieacceptdate" Type="DateTime" />
-          <Property Name="genierejectdate" Type="DateTime" />
-          <Property Name="genierejectreason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="interviewdate" Type="DateTime" />
-          <Property Name="interviewresult" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="workrequest">
-          <Key>
-            <PropertyRef Name="workrequestid" />
-          </Key>
-          <Property Name="workrequestid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="genieid" Type="Int32" />
-          <Property Name="requesttypeid" Type="Int32" />
-          <Property Name="servicetypelistid" Type="String" />
-          <Property Name="scheduleid" Type="Int32" />
-        </EntityType>
-        <EntityContainer Name="helpcentraldbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="orderhistorys" EntityType="Self.orderhistory" />
-          <EntitySet Name="workrequests" EntityType="Self.workrequest" />
-          <EntitySet Name="customers" EntityType="helpcentraldbModel.customer" />
-          <EntitySet Name="genders" EntityType="helpcentraldbModel.gender" />
-          <EntitySet Name="genies" EntityType="helpcentraldbModel.genie" />
-          <EntitySet Name="orderstatuses" EntityType="helpcentraldbModel.orderstatus" />
-          <EntitySet Name="persontypes" EntityType="helpcentraldbModel.persontype" />
-          <EntitySet Name="requesttypes" EntityType="helpcentraldbModel.requesttype" />
-          <EntitySet Name="schedules" EntityType="helpcentraldbModel.schedule" />
-          <EntitySet Name="scheduletypes" EntityType="helpcentraldbModel.scheduletype" />
-          <EntitySet Name="servicetypes" EntityType="helpcentraldbModel.servicetype" />
-          <EntitySet Name="orders" EntityType="helpcentraldbModel.order" />
-          <EntitySet Name="schedulers" EntityType="helpcentraldbModel.scheduler" />
-          <EntitySet Name="geniestatuses" EntityType="helpcentraldbModel.geniestatus" />
-        </EntityContainer>
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="customerid" />
@@ -242,6 +203,43 @@
           <Property Name="phone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="geniestatusid" Type="Int32" />
         </EntityType>
+        <EntityType Name="geniestatus">
+          <Key>
+            <PropertyRef Name="geniestatusid" />
+          </Key>
+          <Property Name="geniestatusid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="orderhistory">
+          <Key>
+            <PropertyRef Name="orderhistoryid" />
+          </Key>
+          <Property Name="orderhistoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Int32" />
+          <Property Name="genieid" Type="Int32" />
+          <Property Name="assigneddate" Type="DateTime" />
+          <Property Name="genieacceptdate" Type="DateTime" />
+          <Property Name="genierejectdate" Type="DateTime" />
+          <Property Name="genierejectreason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="interviewdate" Type="DateTime" />
+          <Property Name="interviewresult" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicetypeid" Type="Int32" />
+          <Property Name="orderstatusid" Type="Int32" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="estimatedhours" Type="Int32" />
+          <Property Name="actualhours" Type="Int32" />
+          <Property Name="perferredgenieid" Type="Int32" />
+          <Property Name="specialrequest" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dateplaced" Type="DateTime" />
+          <Property Name="datecompleted" Type="DateTime" />
+          <Property Name="pricepaid" Type="Single" />
+        </EntityType>
         <EntityType Name="orderstatus">
           <Key>
             <PropertyRef Name="orderstatusid" />
@@ -263,17 +261,30 @@
           <Property Name="requesttypeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="scheduler">
+          <Key>
+            <PropertyRef Name="schedulerid" />
+          </Key>
+          <Property Name="schedulerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="persontypeid" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="schedule">
           <Key>
             <PropertyRef Name="scheduleid" />
           </Key>
           <Property Name="scheduleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="startdate" Type="DateTime" />
-          <Property Name="scheduletypeid" Type="Int32" />
-          <Property Name="daysoftheweeklist" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="numberofrepeatingweeks" Type="Int32" />
           <Property Name="starttime" Type="DateTime" />
           <Property Name="duration" Type="Int32" />
+          <Property Name="daysoftheweeklist" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="numberofrepeatingweeks" Type="Int32" />
+          <Property Name="scheduletypeid" Type="Int32" />
         </EntityType>
         <EntityType Name="scheduletype">
           <Key>
@@ -293,203 +304,193 @@
           <Property Name="hourlyfee" Type="Single" />
           <Property Name="qualificationsrequired" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="order">
+        <EntityType Name="workrequest">
           <Key>
-            <PropertyRef Name="orderid" />
+            <PropertyRef Name="workrequestid" />
           </Key>
-          <Property Name="orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="servicetypeid" Type="Int32" />
-          <Property Name="orderstatusid" Type="Int32" />
-          <Property Name="customerid" Type="Int32" />
-          <Property Name="estimatedhours" Type="Int32" />
-          <Property Name="actualhours" Type="Int32" />
-          <Property Name="perferredgenieid" Type="Int32" />
-          <Property Name="specialrequest" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="dateplaced" Type="DateTime" />
-          <Property Name="datecompleted" Type="DateTime" />
-          <Property Name="pricepaid" Type="Single" />
+          <Property Name="workrequestid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genieid" Type="Int32" />
+          <Property Name="requesttypeid" Type="Int32" />
+          <Property Name="servicetypelistid" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="scheduleid" Type="Int32" />
         </EntityType>
-        <EntityType Name="scheduler">
-          <Key>
-            <PropertyRef Name="schedulerid" />
-          </Key>
-          <Property Name="schedulerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="persontypeid" Type="Int32" />
-          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="gender" Type="Int32" />
-          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="phone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="geniestatus">
-          <Key>
-            <PropertyRef Name="geniestatusid" />
-          </Key>
-          <Property Name="geniestatusid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
+        <EntityContainer Name="helpcentraldbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="genders" EntityType="Self.gender" />
+          <EntitySet Name="genies" EntityType="Self.genie" />
+          <EntitySet Name="geniestatuses" EntityType="Self.geniestatus" />
+          <EntitySet Name="orderhistorys" EntityType="Self.orderhistory" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="orderstatuses" EntityType="Self.orderstatus" />
+          <EntitySet Name="persontypes" EntityType="Self.persontype" />
+          <EntitySet Name="requesttypes" EntityType="Self.requesttype" />
+          <EntitySet Name="schedulers" EntityType="Self.scheduler" />
+          <EntitySet Name="schedules" EntityType="Self.schedule" />
+          <EntitySet Name="scheduletypes" EntityType="Self.scheduletype" />
+          <EntitySet Name="servicetypes" EntityType="Self.servicetype" />
+          <EntitySet Name="workrequests" EntityType="Self.workrequest" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="helpcentraldbModelStoreContainer" CdmEntityContainer="helpcentraldbEntities">
-          <EntitySetMapping Name="orderhistorys">
-            <EntityTypeMapping TypeName="helpcentraldbModel.orderhistory">
-              <MappingFragment StoreEntitySet="orderhistorys">
-                <ScalarProperty Name="interviewresult" ColumnName="interviewresult" />
-                <ScalarProperty Name="interviewdate" ColumnName="interviewdate" />
-                <ScalarProperty Name="genierejectreason" ColumnName="genierejectreason" />
-                <ScalarProperty Name="genierejectdate" ColumnName="genierejectdate" />
-                <ScalarProperty Name="genieacceptdate" ColumnName="genieacceptdate" />
-                <ScalarProperty Name="assigneddate" ColumnName="assigneddate" />
-                <ScalarProperty Name="genieid" ColumnName="genieid" />
-                <ScalarProperty Name="orderid" ColumnName="orderid" />
-                <ScalarProperty Name="orderhistoryid" ColumnName="orderhistoryid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="workrequests">
-            <EntityTypeMapping TypeName="helpcentraldbModel.workrequest">
-              <MappingFragment StoreEntitySet="workrequests">
-                <ScalarProperty Name="scheduleid" ColumnName="scheduleid" />
-                <ScalarProperty Name="servicetypelistid" ColumnName="servicetypelistid" />
-                <ScalarProperty Name="requesttypeid" ColumnName="requesttypeid" />
-                <ScalarProperty Name="genieid" ColumnName="genieid" />
-                <ScalarProperty Name="workrequestid" ColumnName="workrequestid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="customers">
             <EntityTypeMapping TypeName="helpcentraldbModel.customer">
               <MappingFragment StoreEntitySet="customers">
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
                 <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="genders">
             <EntityTypeMapping TypeName="helpcentraldbModel.gender">
               <MappingFragment StoreEntitySet="genders">
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="genderid" ColumnName="genderid" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="genies">
             <EntityTypeMapping TypeName="helpcentraldbModel.genie">
               <MappingFragment StoreEntitySet="genies">
-                <ScalarProperty Name="geniestatusid" ColumnName="geniestatusid" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
                 <ScalarProperty Name="genieid" ColumnName="genieid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="orderstatuses">
-            <EntityTypeMapping TypeName="helpcentraldbModel.orderstatus">
-              <MappingFragment StoreEntitySet="orderstatuses">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="orderstatusid" ColumnName="orderstatusid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="persontypes">
-            <EntityTypeMapping TypeName="helpcentraldbModel.persontype">
-              <MappingFragment StoreEntitySet="persontypes">
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="requesttypes">
-            <EntityTypeMapping TypeName="helpcentraldbModel.requesttype">
-              <MappingFragment StoreEntitySet="requesttypes">
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="requesttypeid" ColumnName="requesttypeid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="schedules">
-            <EntityTypeMapping TypeName="helpcentraldbModel.schedule">
-              <MappingFragment StoreEntitySet="schedules">
-                <ScalarProperty Name="duration" ColumnName="duration" />
-                <ScalarProperty Name="starttime" ColumnName="starttime" />
-                <ScalarProperty Name="numberofrepeatingweeks" ColumnName="numberofrepeatingweeks" />
-                <ScalarProperty Name="daysoftheweeklist" ColumnName="daysoftheweeklist" />
-                <ScalarProperty Name="scheduletypeid" ColumnName="scheduletypeid" />
-                <ScalarProperty Name="startdate" ColumnName="startdate" />
-                <ScalarProperty Name="scheduleid" ColumnName="scheduleid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="scheduletypes">
-            <EntityTypeMapping TypeName="helpcentraldbModel.scheduletype">
-              <MappingFragment StoreEntitySet="scheduletypes">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="scheduletypeid" ColumnName="scheduletypeid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="servicetypes">
-            <EntityTypeMapping TypeName="helpcentraldbModel.servicetype">
-              <MappingFragment StoreEntitySet="servicetypes">
-                <ScalarProperty Name="qualificationsrequired" ColumnName="qualificationsrequired" />
-                <ScalarProperty Name="hourlyfee" ColumnName="hourlyfee" />
-                <ScalarProperty Name="interviewrequired" ColumnName="interviewrequired" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="servicetypeid" ColumnName="servicetypeid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="orders">
-            <EntityTypeMapping TypeName="helpcentraldbModel.order">
-              <MappingFragment StoreEntitySet="orders">
-                <ScalarProperty Name="pricepaid" ColumnName="pricepaid" />
-                <ScalarProperty Name="datecompleted" ColumnName="datecompleted" />
-                <ScalarProperty Name="dateplaced" ColumnName="dateplaced" />
-                <ScalarProperty Name="specialrequest" ColumnName="specialrequest" />
-                <ScalarProperty Name="perferredgenieid" ColumnName="perferredgenieid" />
-                <ScalarProperty Name="actualhours" ColumnName="actualhours" />
-                <ScalarProperty Name="estimatedhours" ColumnName="estimatedhours" />
-                <ScalarProperty Name="customerid" ColumnName="customerid" />
-                <ScalarProperty Name="orderstatusid" ColumnName="orderstatusid" />
-                <ScalarProperty Name="servicetypeid" ColumnName="servicetypeid" />
-                <ScalarProperty Name="orderid" ColumnName="orderid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="schedulers">
-            <EntityTypeMapping TypeName="helpcentraldbModel.scheduler">
-              <MappingFragment StoreEntitySet="schedulers">
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
-                <ScalarProperty Name="schedulerid" ColumnName="schedulerid" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="geniestatusid" ColumnName="geniestatusid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="geniestatuses">
             <EntityTypeMapping TypeName="helpcentraldbModel.geniestatus">
               <MappingFragment StoreEntitySet="geniestatuses">
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="geniestatusid" ColumnName="geniestatusid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderhistorys">
+            <EntityTypeMapping TypeName="helpcentraldbModel.orderhistory">
+              <MappingFragment StoreEntitySet="orderhistorys">
+                <ScalarProperty Name="orderhistoryid" ColumnName="orderhistoryid" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="genieid" ColumnName="genieid" />
+                <ScalarProperty Name="assigneddate" ColumnName="assigneddate" />
+                <ScalarProperty Name="genieacceptdate" ColumnName="genieacceptdate" />
+                <ScalarProperty Name="genierejectdate" ColumnName="genierejectdate" />
+                <ScalarProperty Name="genierejectreason" ColumnName="genierejectreason" />
+                <ScalarProperty Name="interviewdate" ColumnName="interviewdate" />
+                <ScalarProperty Name="interviewresult" ColumnName="interviewresult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="helpcentraldbModel.order">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="servicetypeid" ColumnName="servicetypeid" />
+                <ScalarProperty Name="orderstatusid" ColumnName="orderstatusid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="estimatedhours" ColumnName="estimatedhours" />
+                <ScalarProperty Name="actualhours" ColumnName="actualhours" />
+                <ScalarProperty Name="perferredgenieid" ColumnName="perferredgenieid" />
+                <ScalarProperty Name="specialrequest" ColumnName="specialrequest" />
+                <ScalarProperty Name="dateplaced" ColumnName="dateplaced" />
+                <ScalarProperty Name="datecompleted" ColumnName="datecompleted" />
+                <ScalarProperty Name="pricepaid" ColumnName="pricepaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderstatuses">
+            <EntityTypeMapping TypeName="helpcentraldbModel.orderstatus">
+              <MappingFragment StoreEntitySet="orderstatuses">
+                <ScalarProperty Name="orderstatusid" ColumnName="orderstatusid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persontypes">
+            <EntityTypeMapping TypeName="helpcentraldbModel.persontype">
+              <MappingFragment StoreEntitySet="persontypes">
+                <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requesttypes">
+            <EntityTypeMapping TypeName="helpcentraldbModel.requesttype">
+              <MappingFragment StoreEntitySet="requesttypes">
+                <ScalarProperty Name="requesttypeid" ColumnName="requesttypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedulers">
+            <EntityTypeMapping TypeName="helpcentraldbModel.scheduler">
+              <MappingFragment StoreEntitySet="schedulers">
+                <ScalarProperty Name="schedulerid" ColumnName="schedulerid" />
+                <ScalarProperty Name="persontypeid" ColumnName="persontypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedules">
+            <EntityTypeMapping TypeName="helpcentraldbModel.schedule">
+              <MappingFragment StoreEntitySet="schedules">
+                <ScalarProperty Name="scheduleid" ColumnName="scheduleid" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="daysoftheweeklist" ColumnName="daysoftheweeklist" />
+                <ScalarProperty Name="numberofrepeatingweeks" ColumnName="numberofrepeatingweeks" />
+                <ScalarProperty Name="scheduletypeid" ColumnName="scheduletypeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="scheduletypes">
+            <EntityTypeMapping TypeName="helpcentraldbModel.scheduletype">
+              <MappingFragment StoreEntitySet="scheduletypes">
+                <ScalarProperty Name="scheduletypeid" ColumnName="scheduletypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servicetypes">
+            <EntityTypeMapping TypeName="helpcentraldbModel.servicetype">
+              <MappingFragment StoreEntitySet="servicetypes">
+                <ScalarProperty Name="servicetypeid" ColumnName="servicetypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="interviewrequired" ColumnName="interviewrequired" />
+                <ScalarProperty Name="hourlyfee" ColumnName="hourlyfee" />
+                <ScalarProperty Name="qualificationsrequired" ColumnName="qualificationsrequired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workrequests">
+            <EntityTypeMapping TypeName="helpcentraldbModel.workrequest">
+              <MappingFragment StoreEntitySet="workrequests">
+                <ScalarProperty Name="workrequestid" ColumnName="workrequestid" />
+                <ScalarProperty Name="genieid" ColumnName="genieid" />
+                <ScalarProperty Name="requesttypeid" ColumnName="requesttypeid" />
+                <ScalarProperty Name="servicetypelistid" ColumnName="servicetypelistid" />
+                <ScalarProperty Name="scheduleid" ColumnName="scheduleid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

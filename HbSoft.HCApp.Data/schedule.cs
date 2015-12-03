@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HCApp
+namespace HbSoft.HCApp.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class workrequest
+    public partial class schedule
     {
-        public int workrequestid { get; set; }
-        public Nullable<int> genieid { get; set; }
-        public Nullable<int> requesttypeid { get; set; }
-        public string servicetypelistid { get; set; }
-        public Nullable<int> scheduleid { get; set; }
+        public int scheduleid { get; set; }
+        public Nullable<System.DateTime> startdate { get; set; }
+        public Nullable<System.DateTime> starttime { get; set; }
+        public Nullable<int> duration { get; set; }
+        public string daysoftheweeklist { get; set; }
+        public Nullable<int> numberofrepeatingweeks { get; set; }
+        public Nullable<int> scheduletypeid { get; set; }
     }
 }

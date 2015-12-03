@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HCApp
+namespace HbSoft.HCApp.Data
 {
     using System;
     using System.Collections.Generic;

@@ -21,5 +21,6 @@ namespace HCApp
         public Nullable<int> gender { get; set; }
         public string address { get; set; }
         public string phone { get; set; }
+        public Nullable<int> geniestatusid { get; set; }
     }
 }

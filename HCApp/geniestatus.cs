@@ -12,12 +12,9 @@ namespace HCApp
     using System;
     using System.Collections.Generic;
     
-    public partial class workrequest
+    public partial class geniestatus
     {
-        public int workrequestid { get; set; }
-        public Nullable<int> genieid { get; set; }
-        public Nullable<int> requesttypeid { get; set; }
-        public string servicetypelistid { get; set; }
-        public Nullable<int> scheduleid { get; set; }
+        public int geniestatusid { get; set; }
+        public string name { get; set; }
     }
 }

@@ -7,17 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HCApp
+namespace HbSoft.HCApp.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class workrequest
+    public partial class customer
     {
-        public int workrequestid { get; set; }
-        public Nullable<int> genieid { get; set; }
-        public Nullable<int> requesttypeid { get; set; }
-        public string servicetypelistid { get; set; }
-        public Nullable<int> scheduleid { get; set; }
+        public int customerid { get; set; }
+        public Nullable<int> persontypeid { get; set; }
+        public string name { get; set; }
+        public string email { get; set; }
+        public Nullable<int> gender { get; set; }
+        public string address { get; set; }
+        public string phone { get; set; }
+        public string password { get; set; }
     }
 }

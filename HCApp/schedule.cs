@@ -16,11 +16,10 @@ namespace HCApp
     {
         public int scheduleid { get; set; }
         public Nullable<System.DateTime> startdate { get; set; }
-        public Nullable<int> durration { get; set; }
         public Nullable<int> scheduletypeid { get; set; }
-        public Nullable<System.DateTime> servicedate { get; set; }
         public string daysoftheweeklist { get; set; }
         public Nullable<int> numberofrepeatingweeks { get; set; }
         public Nullable<System.DateTime> starttime { get; set; }
+        public Nullable<int> duration { get; set; }
     }
 }

@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		PublishScripts\Templates\HCApp.param.dev.json = PublishScripts\Templates\HCApp.param.dev.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HbSoft", "HbSoft\HbSoft.csproj", "{E00F900D-3C8F-4093-A2CC-FA10D99D961B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HbSoft.HCApp.Data", "HbSoft.HCApp.Data\HbSoft.HCApp.Data.csproj", "{E0390E09-EBE1-4B1F-B7EE-A50B270A76E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HbSoft.HCApp.Business", "HbSoft.HCApp.Business\HbSoft.HCApp.Business.csproj", "{7AD2149F-B8C6-4660-BA3A-205C7C0AE7CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +34,18 @@ Global
 		{B47C8730-1123-4FCF-A7CE-BD32E9E865C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B47C8730-1123-4FCF-A7CE-BD32E9E865C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B47C8730-1123-4FCF-A7CE-BD32E9E865C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00F900D-3C8F-4093-A2CC-FA10D99D961B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00F900D-3C8F-4093-A2CC-FA10D99D961B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00F900D-3C8F-4093-A2CC-FA10D99D961B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00F900D-3C8F-4093-A2CC-FA10D99D961B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0390E09-EBE1-4B1F-B7EE-A50B270A76E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0390E09-EBE1-4B1F-B7EE-A50B270A76E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0390E09-EBE1-4B1F-B7EE-A50B270A76E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0390E09-EBE1-4B1F-B7EE-A50B270A76E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD2149F-B8C6-4660-BA3A-205C7C0AE7CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD2149F-B8C6-4660-BA3A-205C7C0AE7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD2149F-B8C6-4660-BA3A-205C7C0AE7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD2149F-B8C6-4660-BA3A-205C7C0AE7CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,14 +53,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2DFE10BF-628D-4D36-BD10-3E25F718C12D} = {A8E50ADE-29CA-46F2-9483-C0B6CDF6C272}
 		{FE8218B6-2DE9-428C-8E70-5005E44C5629} = {A8E50ADE-29CA-46F2-9483-C0B6CDF6C272}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://helpcentral.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = HCApp\\HCApp.csproj
-		SccProjectName1 = HCApp
-		SccLocalPath1 = HCApp
 	EndGlobalSection
 EndGlobal

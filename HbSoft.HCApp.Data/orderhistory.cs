@@ -7,17 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HCApp
+namespace HbSoft.HCApp.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class workrequest
+    public partial class orderhistory
     {
-        public int workrequestid { get; set; }
+        public int orderhistoryid { get; set; }
+        public Nullable<int> orderid { get; set; }
         public Nullable<int> genieid { get; set; }
-        public Nullable<int> requesttypeid { get; set; }
-        public string servicetypelistid { get; set; }
-        public Nullable<int> scheduleid { get; set; }
+        public Nullable<System.DateTime> assigneddate { get; set; }
+        public Nullable<System.DateTime> genieacceptdate { get; set; }
+        public Nullable<System.DateTime> genierejectdate { get; set; }
+        public string genierejectreason { get; set; }
+        public Nullable<System.DateTime> interviewdate { get; set; }
+        public string interviewresult { get; set; }
     }
 }

@@ -16,5 +16,9 @@ namespace HCApp
     {
         public int servicetypeid { get; set; }
         public string name { get; set; }
+        public string description { get; set; }
+        public Nullable<sbyte> interviewrequired { get; set; }
+        public Nullable<float> hourlyfee { get; set; }
+        public string qualificationsrequired { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HCApp
+namespace HbSoft.HCApp.Data
 {
     using System;
     using System.Data.Entity;
@@ -25,19 +25,19 @@ namespace HCApp
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<orderhistory> orderhistorys { get; set; }
-        public virtual DbSet<workrequest> workrequests { get; set; }
         public virtual DbSet<customer> customers { get; set; }
         public virtual DbSet<gender> genders { get; set; }
         public virtual DbSet<genie> genies { get; set; }
+        public virtual DbSet<geniestatus> geniestatuses { get; set; }
+        public virtual DbSet<orderhistory> orderhistorys { get; set; }
+        public virtual DbSet<order> orders { get; set; }
         public virtual DbSet<orderstatus> orderstatuses { get; set; }
         public virtual DbSet<persontype> persontypes { get; set; }
         public virtual DbSet<requesttype> requesttypes { get; set; }
+        public virtual DbSet<scheduler> schedulers { get; set; }
         public virtual DbSet<schedule> schedules { get; set; }
         public virtual DbSet<scheduletype> scheduletypes { get; set; }
         public virtual DbSet<servicetype> servicetypes { get; set; }
-        public virtual DbSet<order> orders { get; set; }
-        public virtual DbSet<scheduler> schedulers { get; set; }
-        public virtual DbSet<geniestatus> geniestatuses { get; set; }
+        public virtual DbSet<workrequest> workrequests { get; set; }
     }
 }
