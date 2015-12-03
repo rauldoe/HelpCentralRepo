@@ -20,9 +20,11 @@
             <label class="control-label col-md-2" for="name">Service Type</label>
             @Html.DropDownListFor(model => model.servicetypeid, new List<SelectListItem>
          {
-                        new SelectListItem() {Text = "Pick-up", Value="Pick-up"},
-                        new SelectListItem() {Text = "Computer Services", Value="Computer Services"},
-                        new SelectListItem() {Text = "Gardening", Value="Gardening"}
+                        new SelectListItem() {Text = "Pick-up", Value="01"},
+                        new SelectListItem() {Text = "Computer Services", Value="02"},
+                        new SelectListItem() {Text = "Gardening", Value="03"},
+                        new SelectListItem() {Text = "Tutoring", Value="04"},
+                        new SelectListItem() {Text = "Babysitting", Value="05"}
          })
             <!-- @Html.LabelFor(model => model.servicetypeid, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
