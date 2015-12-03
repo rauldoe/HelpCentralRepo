@@ -1,10 +1,60 @@
-﻿
+﻿@Model HCApp.SchedulerViewModel
+
 
 @{
     ViewBag.Title = "LoginGood";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login Successful</h2>
+<h2>Scheduler View</h2>
 
-<p>Scheduler login success!!!!</p>
+<h3>Customer Orders</h3>
+
+<table class="scheduler_table_one">
+    <tr>
+        <th>Customer</th>
+        <th>Order(s)</th>
+    </tr>
+    @foreach (var item in Model.CustomerViewModelList)
+    {
+        <tr>
+            <td>@Html.ActionLink((string)@item.Customer.name, "Details1", new { id = item.Customer.customerid })</td>
+            <td>
+                @foreach (var second in item.OrderList)
+                { 
+                    @Html.ActionLink("Order", "Details2", new { id = second.orderid })  
+                    <br/>               
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<h3>Genie Work Requests</h3>
+   
+    @foreach (var item2 in Model.GenieViewModelList)
+    {
+        <table class="scheduler_table_one">
+            <tr>
+                <td>@Html.ActionLink((string)@item2.Genie.name, "GenieDetails", new { id = item2.Genie.genieid })</td>
+            </tr>
+            <tr>
+                <th>Genie ID</th>
+                <th>Work Request ID</th>
+                <th>Request Type ID</th>
+                <th>Service Type ID</th>
+                <th>Schedule ID</th>
+            </tr>
+            @foreach (var item3 in item2.WorkRequestList)
+            {
+                <tr>
+                    <td>@item3.genieid</td>
+                    <td>@item3.workrequestid</td>
+                    <td>@item3.requesttypeid</td>
+                    <td>@item3.servicetypelistid</td>
+                    <td>@item3.scheduleid</td>
+                </tr>
+            }
+        </table>
+    }
+       

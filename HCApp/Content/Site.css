@@ -22,3 +22,40 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.scheduler_table_one 
+{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom:10px;
+}
+
+.scheduler_table_one td, .scheduler_table_one th
+{
+	font-size: 1em;
+    border: 1px solid #000000;
+    padding: 3px 7px 2px 7px;
+}
+.scheduler_table_one th
+{
+font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.scheduler_table_one a
+{
+	text-decoration:none;
+	
+}
+
+.scheduler_table_one a:hover
+{
+	color:orangered;
+}
+

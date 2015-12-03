@@ -1,0 +1,72 @@
+﻿@model HCApp.genie
+
+@{
+    ViewBag.Title = "GenieDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Genie Details</h2>
+
+<div>
+    <h4>Genie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.genieid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genieid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.persontypeid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.persontypeid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+    </dl>
+</div>
+

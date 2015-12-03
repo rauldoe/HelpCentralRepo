@@ -351,6 +351,9 @@
     <Content Include="Views\Home\LoginScheduler.cshtml" />
     <Content Include="Views\schedulers\LoginBad.cshtml" />
     <Content Include="Views\schedulers\LoginGood.cshtml" />
+    <Content Include="Views\schedulers\Details1.cshtml" />
+    <Content Include="Views\schedulers\Details2.cshtml" />
+    <Content Include="Views\schedulers\GenieDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

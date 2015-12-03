@@ -5,10 +5,9 @@ using System.Web;
 
 namespace HCApp.Models
 {
-    public class ScheulerViewModel
+    public class SchedulerViewModel
     {
         public List<CustomerViewModel> CustomerViewModelList { get; set; }
-        public List<GenieViewModel> GenieViewModelList { get; set; }
-        
+        public List<GenieViewModel> GenieViewModelList { get; set; } 
     }
 }
