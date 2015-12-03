@@ -8,14 +8,14 @@
 
 @using (Html.BeginForm("Login", "schedulers", FormMethod.Post))
 {
-    <table>
+    <table class="loginview" >
         <tr>
             <td>email:</td>
             <td>@Html.TextBoxFor(i => i.email)</td>
         </tr>
         <tr>
             <td>password:</td>
-            <td>@Html.TextBoxFor(i => i.password)</td>
+            <td>@Html.PasswordFor(i => i.password)</td>
         </tr>
         <tr>
             <td colspan="2">

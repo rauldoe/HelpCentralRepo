@@ -22,8 +22,37 @@ select,
 textarea {
     max-width: 280px;
 }
+.loginview 
+{
+font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+margin-bottom:10px;
+font-size:1em;
+padding:3px 7px 2px 7px;
+}
+.loginview input[type="text"],.loginview input[type="password"]
+{
+	border:1px solid black;
+	border-radius:10px;
+	font-size:20px;
+	padding:4px 7px;
+}
+.loginview input[type="submit"]
+{
+font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+font-size:1em;
+padding:3px 7px 2px 7px;
+background-color:white;
+border: 1px solid black;
+color:black;
+margin-top:10px;
+}
+.loginview input[type="submit"]:hover
+{
+background-color:black;
+border: 1px solid white;
+color: white;
 
-
+}
 .scheduler_table_one 
 {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
