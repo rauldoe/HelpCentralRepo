@@ -195,6 +195,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ordersController.cs" />
+    <Compile Include="Controllers\schedulersController.cs" />
     <Compile Include="customer.cs">
       <DependentUpon>HelpCentralModel.tt</DependentUpon>
     </Compile>
@@ -346,6 +347,8 @@
     <Content Include="Views\customers\LoginBad.cshtml" />
     <Content Include="Views\Home\LoginCustomer.cshtml" />
     <Content Include="Views\Home\LoginScheduler.cshtml" />
+    <Content Include="Views\schedulers\LoginBad.cshtml" />
+    <Content Include="Views\schedulers\LoginGood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
