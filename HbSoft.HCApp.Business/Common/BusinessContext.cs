@@ -61,6 +61,12 @@ namespace HbSoft.HCApp.Business
         {
             Helper = new BusinessUtility(db);
         }
+         
+        public BusinessContext()
+        {
+            var db = new helpcentraldbEntities();
+            Helper = new BusinessUtility(db);
+        }
 
         private List<CustomerBusiness> _customerList;
         public IEnumerable<CustomerBusiness> CustomerList

@@ -25,5 +25,10 @@ namespace HbSoft.HCApp.Business
         {
             Data = data;
         }
+
+        public static SchedulerBusiness Login(BusinessContext context, string userId, string password)
+        {
+            return context.SchedulerList.Where(i => i.Data.email == userId && i.Data.password == password).FirstOrDefault() ?? new SchedulerBusiness(context, new scheduler());
+        }
     }
 }

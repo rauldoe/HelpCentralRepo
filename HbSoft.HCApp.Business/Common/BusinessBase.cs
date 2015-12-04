@@ -12,5 +12,6 @@ namespace HbSoft.HCApp.Business
 
         protected BusinessBase(BusinessContext context)
         { Context = context; }
+
     }
 }

@@ -22,5 +22,6 @@ namespace HbSoft.HCApp.Data
         public string address { get; set; }
         public string phone { get; set; }
         public Nullable<int> geniestatusid { get; set; }
+        public string password { get; set; }
     }
 }

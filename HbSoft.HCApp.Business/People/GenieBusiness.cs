@@ -26,9 +26,28 @@ namespace HbSoft.HCApp.Business
             set { Data.geniestatusid = value.geniestatusid; }
         }
         public IEnumerable<geniestatus> GenieStatusList { get { return Context.Helper.GenieStatusList; } }
+
+        private IEnumerable<WorkRequestBusiness> _workRequestList;
+        public IEnumerable<WorkRequestBusiness> WorkRequest
+        {
+            get
+            {
+                if (_workRequestList == null)
+                {
+                    _workRequestList = Context.WorkRequestList.Where(i => i.Data.genieid == Data.genieid).ToList();
+                }
+
+                return _workRequestList;
+            }
+        }
         public GenieBusiness(BusinessContext context, genie data) : base(context)
         {
             Data = data;
+        }
+
+        public static GenieBusiness Login(BusinessContext context, string userId, string password)
+        {
+            return context.GenieList.Where(i => i.Data.email == userId && i.Data.password == password).FirstOrDefault() ?? new GenieBusiness(context, new genie());
         }
     }
 }
