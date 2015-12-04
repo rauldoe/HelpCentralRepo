@@ -13,15 +13,15 @@ namespace HbSoft.HCApp.Business
         public scheduler Data { get; set; }
         public persontype PersonType
         {
-            get { return Helper.GetPersonType(Data.persontypeid ?? BusinessUtility.UnknownId); }
+            get { return Context.Helper.GetPersonType(Data.persontypeid ?? BusinessUtility.UnknownId); }
             set { Data.persontypeid = value.persontypeid; }
         }
         public gender GenderType
         {
-            get { return Helper.GetGender(Data.gender ?? BusinessUtility.UnknownId); }
+            get { return Context.Helper.GetGender(Data.gender ?? BusinessUtility.UnknownId); }
             set { Data.gender = value.genderid; }
         }
-        public SchedulerBusiness(BusinessUtility helper, scheduler data) : base(helper)
+        public SchedulerBusiness(BusinessContext context, scheduler data) : base(context)
         {
             Data = data;
         }

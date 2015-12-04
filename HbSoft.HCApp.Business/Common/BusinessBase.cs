@@ -8,9 +8,9 @@ namespace HbSoft.HCApp.Business
 {
     public abstract class BusinessBase : IBusiness
     {
-        public BusinessUtility Helper { get; set; }
+        public BusinessContext Context { get; set; }
 
-        protected BusinessBase(BusinessUtility helper)
-        { Helper = helper; }
+        protected BusinessBase(BusinessContext context)
+        { Context = context; }
     }
 }

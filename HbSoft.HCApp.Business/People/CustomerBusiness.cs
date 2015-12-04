@@ -12,15 +12,15 @@ namespace HbSoft.HCApp.Business
     {
         public customer Data { get; set; }
         public persontype PersonType {
-            get { return Helper.GetPersonType(Data.persontypeid ?? BusinessUtility.UnknownId); }
+            get { return Context.Helper.GetPersonType(Data.persontypeid ?? BusinessUtility.UnknownId); }
             set { Data.persontypeid = value.persontypeid; }
         }
         public gender GenderType {
-            get { return Helper.GetGender(Data.gender ?? BusinessUtility.UnknownId); }
+            get { return Context.Helper.GetGender(Data.gender ?? BusinessUtility.UnknownId); }
             set { Data.gender = value.genderid; }
         }
 
-        public CustomerBusiness(BusinessUtility helper, customer data) : base(helper)
+        public CustomerBusiness(BusinessContext context, customer data) : base(context)
         {
             Data = data;
         }

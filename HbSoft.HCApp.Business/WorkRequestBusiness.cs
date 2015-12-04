@@ -12,21 +12,56 @@ namespace HbSoft.HCApp.Business
     {
         public workrequest Data { get; set; }
 
+        private GenieBusiness _genie;
         public GenieBusiness Genie
         {
-            get { return new GenieBusiness(Helper, Helper.Db.genies.Where(i => i.genieid == Data.genieid).FirstOrDefault() ?? new genie()); }
+            get {
+                if (_genie == null)
+                {
+                    _genie = Context.GenieList.Where(i => i.Data.genieid == Data.genieid).FirstOrDefault() ?? new GenieBusiness(Context, new genie());
+                }
+
+                return _genie;
+            }
+
+            set
+            {
+                if (Context.GenieList.Where(i=>i.Data.genieid == value.Data.genieid).Count() > 0)
+                {
+                    _genie = value;
+                    Data.genieid = _genie.Data.genieid;
+                }
+            }
         }
 
+        private ScheduleBusiness _schedule;
         public ScheduleBusiness Schedule {
-            get { return new ScheduleBusiness(Helper, Helper.Db.schedules.Where(i=>i.scheduleid == Data.scheduleid).FirstOrDefault()?? new schedule()); }
+            get
+            {
+                if (_schedule == null)
+                {
+                    _schedule = Context.ScheduleList.Where(i => i.Data.scheduleid == Data.scheduleid).FirstOrDefault() ?? new ScheduleBusiness(Context, new schedule());
+                }
+
+                return _schedule;
+            }
+
+            set
+            {
+                if (Context.ScheduleList.Where(i => i.Data.scheduleid == value.Data.scheduleid).Count() > 0)
+                {
+                    _schedule = value;
+                    Data.scheduleid = _schedule.Data.scheduleid;
+                }
+            }
         }
-        public requesttype RequestType { get { return Helper.GetRequestType(Data.requesttypeid ?? BusinessUtility.UnknownId); } }
+        public requesttype RequestType { get { return Context.Helper.GetRequestType(Data.requesttypeid ?? BusinessUtility.UnknownId); } }
 
         public List<servicetype> ServiceTypeList
         {
-            get { return Helper.ConvertServiceTypeDataToList(Data.servicetypelistid); }
+            get { return Context.Helper.ConvertServiceTypeDataToList(Data.servicetypelistid); }
         }
-        public WorkRequestBusiness(BusinessUtility helper, workrequest data) : base(helper)
+        public WorkRequestBusiness(BusinessContext context, workrequest data) : base(context)
         {
             Data = data;
         }

@@ -12,20 +12,14 @@ namespace HbSoft.HCApp.Business
     {
         public schedule Data { get; set; }
 
-        public scheduletype ScheduleType { get { return Helper.GetScheduleType(Data.scheduletypeid ?? BusinessUtility.UnknownId); } }
+        public scheduletype ScheduleType { get { return Context.Helper.GetScheduleType(Data.scheduletypeid ?? BusinessUtility.UnknownId); } }
 
         public List<DayOfWeek> DaysOfTheWeekList {
-            get { return Helper.ConvertDayOfWeekDataToList(Data.daysoftheweeklist); }
+            get { return Context.Helper.ConvertDayOfWeekDataToList(Data.daysoftheweeklist); }
         }
-        public ScheduleBusiness(BusinessUtility helper, schedule data) : base(helper)
+        public ScheduleBusiness(BusinessContext context, schedule data) : base(context)
         {
             Data = data;
-        }
-
-        public ScheduleBusiness(BusinessUtility helper) : base(helper)
-        {
-            Data = new schedule();
-            Helper.Db.schedules.Add(Data);
         }
     }
 }

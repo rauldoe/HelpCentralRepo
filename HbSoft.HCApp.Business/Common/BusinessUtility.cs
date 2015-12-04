@@ -8,8 +8,40 @@ using HbSoft.HCApp.Data;
 
 namespace HbSoft.HCApp.Business
 {
-    public class BusinessUtility
+    public class BusinessUtility : IDisposable
     {
+        #region Disposable Pattern Code
+        bool _disposed;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~BusinessUtility()
+        {
+            Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if (disposing)
+            {
+                // free other managed objects that implement
+                // IDisposable only
+            }
+
+            // release any unmanaged objects
+            // set the object references to null
+
+            _disposed = true;
+        }
+        #endregion
+
         public static readonly int UnknownId = -1;
 
         public helpcentraldbEntities Db { get; private set; }
