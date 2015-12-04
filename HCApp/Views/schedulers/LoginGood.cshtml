@@ -22,7 +22,7 @@
             <td>
                 @foreach (var second in item.OrderList)
                 { 
-                    @Html.ActionLink("orders", "Details", "orders", new { id = second.orderid }, null)  
+                    @Html.ActionLink("order:" + (String)(@second.orderid).ToString(), "Details", "orders", new { id = second.orderid }, null)  
                     <br/>               
                 }
             </td>
